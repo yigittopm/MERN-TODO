@@ -18,9 +18,11 @@ connection.once('open', () => {
     console.log("Successfully connection.")
 })
 
-const todosRoute = require('./routes/todos.js');
+app.get('/', (req,res) => {
+    res.send("Welcome!")
+})
 
-app.use('/todos/add', todosRoute);
+app.use('/todos/add', require('./routes/todos.js'));
 
 app.listen(PORT, () => {
     console.log("Serves listening on port: 5000");

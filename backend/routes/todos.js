@@ -10,9 +10,7 @@ router.route('/add').post((req,res) => {
         date
     })
 
-    newTodo.save()
-        .then(() => res.json("Added todo."))
-        .catch(err => res.status(400).json("Error: " + err));
+    console.log(newTodo);
 })
 
 module.exports = router;

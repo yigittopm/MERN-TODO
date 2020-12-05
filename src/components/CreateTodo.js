@@ -9,7 +9,16 @@ export default class CreateTodo extends React.Component{
       date: new Date()
     }
   }
-  
+
+  componentDidMount = () => {
+    
+    axios.get("http://localhost:5000/todos/add")
+      .then(res => this.setState({
+        todo: res.data
+      }))
+
+  }
+
   onChangeHandler = (e) => {
     this.setState({
       todo : e.target.value
@@ -20,14 +29,6 @@ export default class CreateTodo extends React.Component{
     e.preventDefault();
 
     console.log(this.state.todo);
-
-    const todo = {
-      text: this.state.todo,
-      date: this.state.date
-    }
-
-    axios.post("http://localhost:5000/todos/add", todo)
-      .then(res => console.log(res.data));
 
     this.setState({
       todo : ""
