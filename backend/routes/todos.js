@@ -12,12 +12,7 @@ router.route('/add').post((req,res) => {
     });
 })
 
-router.route('/test').post((req,res) => {
-    res.send("Test OKEY")
-})
-
 router.route('/').get((req,res) => {
-
     res.send(list);
 })
 

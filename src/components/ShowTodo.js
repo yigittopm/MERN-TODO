@@ -24,6 +24,7 @@ export default class ShowTodo extends React.Component {
             this.state.todos.map((item) =>
               <li key={item.date} className="list-group-item d-flex justify-content-between align-items-center list-group-item-info">
                 <h4>{item.text}</h4>
+                <h6>{item.date}</h6>
                 <div className="btn-group">
                   <button className="btn btn-warning btn-pill mr-1">Edit</button>
                   <button className="btn btn-danger btn-pill">Delete</button>

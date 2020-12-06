@@ -21,10 +21,9 @@ export default class CreateTodo extends React.Component{
 
     const todo = {
       text: this.state.todo,
-      date: Date.parse(this.state.date)
+      date: this.state.date
     }
     
-    console.log(this.state.date)
     axios.post("http://localhost:5000/todos/add", todo)
       .then(response => console.log(response.data))
 
