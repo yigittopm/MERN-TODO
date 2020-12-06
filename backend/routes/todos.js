@@ -9,8 +9,20 @@ router.route('/add').post((req,res) => {
         text,
         date
     })
+    res.send(req.body)
+})
 
-    console.log(newTodo);
+router.route('/test').post((req,res) => {
+    res.send("Test OKEY")
+})
+
+router.route('/').get((req,res) => {
+    const list = [
+        {id: 1 , name: "Mert"},
+        {id: 2 , name: "Ali"},
+        {id: 3 , name: "Damla"}
+    ]
+    res.send(list);
 })
 
 module.exports = router;

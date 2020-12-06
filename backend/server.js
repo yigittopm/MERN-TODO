@@ -22,7 +22,7 @@ app.get('/', (req,res) => {
     res.send("Welcome!")
 })
 
-app.use('/todos/add', require('./routes/todos.js'));
+app.use('/todos', require('./routes/todos.js'));
 
 app.listen(PORT, () => {
     console.log("Serves listening on port: 5000");

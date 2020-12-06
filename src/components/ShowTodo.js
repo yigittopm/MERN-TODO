@@ -1,10 +1,19 @@
 import React from 'react';
+import axios from 'axios';
 export default class ShowTodo extends React.Component {
   
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      todos: []
+    }
   }
+
+  componentDidMount = () => {
+    axios.get("http://localhost:5000/todos")
+      .then(response => this.setState({todos : response}))
+  }
+
 
   render() {
     return (
