@@ -1,15 +1,15 @@
 const router = require('express').Router();
 const Todo = require('../models/todo.model');
+let list = [];
 
 router.route('/add').post((req,res) => {
     const text = req.body.text;
-    const date = Date.parse(req.body.date);
+    const date = req.body.date;
 
-    const newTodo = new Todo({
-        text,
-        date
-    })
-    res.send(req.body)
+    list.push({
+        text : text,
+        date : date
+    });
 })
 
 router.route('/test').post((req,res) => {
@@ -17,11 +17,7 @@ router.route('/test').post((req,res) => {
 })
 
 router.route('/').get((req,res) => {
-    const list = [
-        {id: 1 , name: "Mert"},
-        {id: 2 , name: "Ali"},
-        {id: 3 , name: "Damla"}
-    ]
+
     res.send(list);
 })
 
