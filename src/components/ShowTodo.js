@@ -14,7 +14,7 @@ export default class ShowTodo extends React.Component {
       .then(response => this.setState({ todos: response.data }))
   }
 
-  deleteTodo = (_id,e) => {
+  deleteTodo = (_id) => {
     console.log("Silindi")
     axios.delete(`http://localhost:5000/todos/${_id}`)
       .then(res => res.json)
