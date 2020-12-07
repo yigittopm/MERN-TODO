@@ -14,6 +14,11 @@ export default class ShowTodo extends React.Component {
       .then(response => this.setState({ todos: response.data }))
   }
 
+  deleteTodo = (_id,e) => {
+    console.log("Silindi")
+    axios.delete(`http://localhost:5000/todos/${_id}`)
+      .then(res => res.json)
+  }
 
   render() {
     return (
@@ -27,7 +32,7 @@ export default class ShowTodo extends React.Component {
                 <h6>{item.date}</h6>
                 <div className="btn-group">
                   <button className="btn btn-warning btn-pill mr-1">Edit</button>
-                  <button className="btn btn-danger btn-pill">Delete</button>
+                  <button onClick={(e) => this.deleteTodo(item._id,e)} className="btn btn-danger btn-pill">Delete</button>
                 </div>
               </li>
             )

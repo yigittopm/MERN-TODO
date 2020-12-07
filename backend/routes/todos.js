@@ -16,6 +16,12 @@ router.route('/add').post((req,res) => {
 
 })
 
+router.route('/:id').delete((req,res) => {
+    Todo.findByIdAndDelete(req.params.id)
+        .then(() => res.json("Deleted."))
+        .catch(err => res.status(400).json(err));
+})
+
 router.route('/').get((req,res) => {
     Todo.find()
         .then(todos => res.json(todos))
