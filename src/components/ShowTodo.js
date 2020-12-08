@@ -20,6 +20,10 @@ export default class ShowTodo extends React.Component {
       .then(res => res.json)
   }
 
+  editTodo = (_id) => {
+    console.log(_id);
+  }
+
   render() {
     return (
       <div className="">
@@ -31,7 +35,7 @@ export default class ShowTodo extends React.Component {
                 <h4>{item.text}</h4>
                 <h6>{item.date}</h6>
                 <div className="btn-group">
-                  <button className="btn btn-warning btn-pill mr-1">Edit</button>
+                  <button onClick={(e) => this.editTodo(item._id,e)} className="btn btn-warning btn-pill mr-1">Edit</button>
                   <button onClick={(e) => this.deleteTodo(item._id,e)} className="btn btn-danger btn-pill">Delete</button>
                 </div>
               </li>
